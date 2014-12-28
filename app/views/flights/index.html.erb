@@ -1,7 +1,10 @@
 <h1>Flights Index</h1>
 
-<p><%= simple_form_for @flight do |f| %></p>
-    <%= f.button :submit %>
+<%= form_tag("/flights", method: "get") do  %>
+    <%= label_tag(:q, "Search for:") %>
+    <%= select_tag() %>
+    <%= submit_tag("Search") %>
 <% end %>
+
 
 
