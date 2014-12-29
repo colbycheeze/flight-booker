@@ -1,5 +1,6 @@
-<%= form_tag('flights/bookings/new', method: "post") do %>
-<table class="table-striped">
+<div class="row">
+<%= form_tag('flights/bookings/new', method: "post", class: "form-inline") do %>
+<table class="table table-striped">
 <thead>
   <tr>
     <th>Select</th>
@@ -29,3 +30,4 @@
   <%= hidden_field_tag(:num_passengers, params[:num_passengers]) %>
 
 <% end %>
+</div>

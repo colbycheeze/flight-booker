@@ -1,4 +1,5 @@
-<%= form_tag(flights_path, method: "get") do  %>
+<div class="row">
+<%= form_tag(flights_path, method: "get", class: "form-inline") do  %>
   <%= select_tag :from, options_for_select(@airports),
                  prompt: "from", class: 'form-control' %>
   <%= select_tag :to, options_for_select(@airports),
@@ -9,3 +10,4 @@
                  prompt: "passengers", class: 'form-control' %>
   <%= submit_tag("search", class: 'btn btn-primary') %>
 <% end %>
+</div>
