@@ -1,5 +1,4 @@
 <%= form_tag('flights/bookings/new', method: "post") do %>
-debugger
 <table class="table-striped">
 <thead>
   <tr>
@@ -15,13 +14,13 @@ debugger
 <tbody>
   <% @flights.each do |f| %>
   <tr>
-    <td><%= radio_button_tag(:flight_id, f.id) %></td>
+    <td><%= radio_button_tag(:flight_id, f.id, class: 'form-control') %></td>
     <td><%= f.id %></td>
     <td><%= f.start_time.strftime("%B %e, %Y") %></td>
-    <td><%= f.start_time.strftime("%H:%M") %></td>
-    <td><%= f.from_airport %></td>
-    <td><%= f.to_airport %></td>
-    <td><%= time_ago_in_words(Time.at(f.duration)) %></td>
+    <td><%= f.start_time.strftime("%l:%M %p") %></td>
+    <td><%= f.from_airport.code %></td>
+    <td><%= f.to_airport.code %></td>
+    <td><%= time_ago_in_words(Time.now + f.duration) %></td>
   </tr>
   <% end %>
 </tbody>

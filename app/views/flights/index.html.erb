@@ -1,17 +1,11 @@
-<h1>Flights</h1>
-
-<%= form_tag(flights_path, method: "get") do  %>
-    <%= label_tag(:q, "Search for:") %>
-    <%= select_tag :from, options_for_select(@airports), prompt: "From" %>
-    <%= select_tag :to, options_for_select(@airports), prompt: "To" %>
-    <%= select_tag :date, options_for_select(@dates), prompt: "Date" %>
-    <%= select_tag :num_passengers,
-                   options_for_select((1..4).to_a), prompt: "Passengers" %>
-    <%= submit_tag("Search") %>
-<% end %>
-
-<% render "flight_search" %>
-<p> <%= debug @flights %> </p>
+<div class="row">
+  <div class="col-md-8">
+    <h1>Flights</h1>
 
 
+    <%= render "search" %>
 
+    <%= render "search_results" unless @flights.none? %>
+    <p> <%= debug @flights %> </p>
+  </div>
+</div>

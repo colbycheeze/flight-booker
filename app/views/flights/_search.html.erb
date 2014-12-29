@@ -1,0 +1,11 @@
+<%= form_tag(flights_path, method: "get") do  %>
+  <%= select_tag :from, options_for_select(@airports),
+                 prompt: "from", class: 'form-control' %>
+  <%= select_tag :to, options_for_select(@airports),
+                 prompt: "to", class: 'form-control' %>
+  <%= select_tag :date, options_for_select(@dates),
+                 prompt: "date", class: 'form-control' %>
+  <%= select_tag :num_passengers, options_for_select((1..4).to_a),
+                 prompt: "passengers", class: 'form-control' %>
+  <%= submit_tag("search", class: 'btn btn-primary') %>
+<% end %>

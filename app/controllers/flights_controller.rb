@@ -3,7 +3,7 @@ class FlightsController < ApplicationController
         @airports = Airport.pluck(:code, :id)
         @dates = Flight.get_dates
 
-        @flights = Flight.search(params) if params[:commit]
+        @flights = Flight.search(params)
 
     end
 end

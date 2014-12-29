@@ -2,6 +2,7 @@ class Flight < ActiveRecord::Base
   belongs_to :from_airport, class_name: "Airport"
   belongs_to :to_airport, class_name: "Airport"
 
+
   def self.get_dates
     Flight.uniq.order(start_time: :asc)
                .pluck(:start_time)
@@ -13,12 +14,16 @@ class Flight < ActiveRecord::Base
   end
 
   def self.search(params)
+    #avoid returning nil when there is no search
+    return [] unless params[:commit]
+
     date = params[:date].to_date
     day = date.beginning_of_day..date.end_of_day
 
     Flight.where(from_airport_id: params[:from], to_airport_id: params[:to],
                  start_time: day)
           .includes(:from_airport, :to_airport)
+#avoid n+1 query ^
 
   end
 
