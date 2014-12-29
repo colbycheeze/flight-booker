@@ -1,5 +1,9 @@
 class FlightsController < ApplicationController
     def index
-        @flights = Flight.all
+        @airports = Airport.pluck(:code, :id)
+        @dates = Flight.get_dates
+
+        @flights = Flight.search(params) if params[:commit]
+
     end
 end

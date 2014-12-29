@@ -1,0 +1,32 @@
+<%= form_tag('flights/bookings/new', method: "post") do %>
+debugger
+<table class="table-striped">
+<thead>
+  <tr>
+    <th>Select</th>
+    <th>Flight</th>
+    <th>Date</th>
+    <th>Departs</th>
+    <th>From</th>
+    <th>To</th>
+    <th>Duration</th>
+  </tr>
+</thead>
+<tbody>
+  <% @flights.each do |f| %>
+  <tr>
+    <td><%= radio_button_tag(:flight_id, f.id) %></td>
+    <td><%= f.id %></td>
+    <td><%= f.start_time.strftime("%B %e, %Y") %></td>
+    <td><%= f.start_time.strftime("%H:%M") %></td>
+    <td><%= f.from_airport %></td>
+    <td><%= f.to_airport %></td>
+    <td><%= time_ago_in_words(Time.at(f.duration)) %></td>
+  </tr>
+  <% end %>
+</tbody>
+</table>
+  <%= submit_tag("Select Flight",  class: "btn btn-primary") %>
+  <%= hidden_field_tag(:num_passengers, params[:num_passengers]) %>
+
+<% end %>
