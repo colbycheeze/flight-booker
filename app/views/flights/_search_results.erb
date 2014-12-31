@@ -1,5 +1,5 @@
 <div class="row">
-<%= form_tag('flights/bookings/new', method: "post", class: "form-inline") do %>
+<%= form_tag(new_booking_path, method: "get", class: "form-inline") do %>
 <table class="table table-striped">
 <thead>
   <tr>
@@ -17,8 +17,8 @@
   <tr>
     <td><%= radio_button_tag(:flight_id, f.id, class: 'form-control') %></td>
     <td><%= f.id %></td>
-    <td><%= f.start_time.strftime("%B %e, %Y") %></td>
-    <td><%= f.start_time.strftime("%l:%M %p") %></td>
+    <td><%= Flight.format_date(f.start_time) %></td>
+    <td><%= Flight.format_time(f.start_time) %></td>
     <td><%= f.from_airport.code %></td>
     <td><%= f.to_airport.code %></td>
     <td><%= time_ago_in_words(Time.now + f.duration) %></td>

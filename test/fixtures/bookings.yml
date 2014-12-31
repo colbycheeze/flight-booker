@@ -1,21 +1,21 @@
 # == Schema Information
 #
-# Table name: airports
+# Table name: bookings
 #
 #  id         :integer          not null, primary key
-#  code       :string(255)
+#  flight_id  :integer
 #  created_at :datetime
 #  updated_at :datetime
+#
+# Indexes
+#
+#  index_bookings_on_flight_id  (flight_id)
 #
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  code: MyString
-  arriving_flight: 1
-  departing_flight: 1
+  flight_id: 
 
 two:
-  code: MyString
-  arriving_flight: 1
-  departing_flight: 1
+  flight_id: 

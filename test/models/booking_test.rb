@@ -1,16 +1,20 @@
 # == Schema Information
 #
-# Table name: airports
+# Table name: bookings
 #
 #  id         :integer          not null, primary key
-#  code       :string(255)
+#  flight_id  :integer
 #  created_at :datetime
 #  updated_at :datetime
+#
+# Indexes
+#
+#  index_bookings_on_flight_id  (flight_id)
 #
 
 require 'test_helper'
 
-class AirportTest < ActiveSupport::TestCase
+class BookingTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

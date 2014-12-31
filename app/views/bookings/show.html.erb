@@ -1,0 +1,18 @@
+<h1>Your Booking Confirmation</h1>
+<div class="row">
+  <div class="col-md-8">
+    <div class="bg-info">
+      <p>Your confirmation # is <%= @booking.id %></p>
+      <p>Flight # <%= @flight.id %></p>
+      <%= content_tag(:p, "Departing on #{Flight.format_date(@flight.start_time)} at #{Flight.format_time(@flight.start_time)} | #{@flight.from_airport.code} to #{@flight.to_airport.code}") %>
+      <h4>Passengers:</h4>
+      <ul>
+      <% @passengers.each do |passenger| %>
+        <li><%= passenger.name %></li>
+      <% end %>
+      </ul>
+    </div>
+  </div>
+</div>
+
+

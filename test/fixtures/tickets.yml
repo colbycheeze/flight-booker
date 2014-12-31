@@ -1,0 +1,25 @@
+# == Schema Information
+#
+# Table name: tickets
+#
+#  id           :integer          not null, primary key
+#  passenger_id :integer
+#  booking_id   :integer
+#  created_at   :datetime
+#  updated_at   :datetime
+#
+# Indexes
+#
+#  index_tickets_on_booking_id    (booking_id)
+#  index_tickets_on_passenger_id  (passenger_id)
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  passenger_id: 
+  booking_id: 
+
+two:
+  passenger_id: 
+  booking_id: 

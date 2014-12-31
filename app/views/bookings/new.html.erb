@@ -1,0 +1,25 @@
+<h1>Book Flight # <%= @flight.id %></h1>
+<div class="row">
+  <div class="col-md-8">
+  <%= field_set_tag do %>
+    <%= content_tag(:h4, "Departing on #{Flight.format_date(@flight.start_time)} at #{Flight.format_time(@flight.start_time)} | #{@flight.from_airport.code} to #{@flight.to_airport.code}") %>
+  <% end %>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-5">
+    <%= form_for @booking do |f| %>
+    <%= f.hidden_field :flight_id %>
+
+      <%= f.fields_for :passengers do |passenger| %>
+        <%= passenger.label :name %>:
+        <%= passenger.text_field :name, class: 'form-control' %>
+
+        <%= passenger.label :email %>:
+        <%= passenger.text_field :email, class: 'form-control' %>
+      <% end %>
+
+      <%= f.submit "Book Flight", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>
