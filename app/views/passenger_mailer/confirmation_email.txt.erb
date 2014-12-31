@@ -1,0 +1,10 @@
+Your Booking Confirmation
+===============================================
+
+Your confirmation # is <%= @booking.id %>
+Flight # <%= @flight.id %>
+<%= "Departing on #{Flight.format_date(@flight.start_time)} at #{Flight.format_time(@flight.start_time)} | #{@flight.from_airport.code} to #{@flight.to_airport.code}") %>
+Passengers:
+<% @passengers.each do |passenger| %>
+  <%= passenger.name %>
+<% end %>

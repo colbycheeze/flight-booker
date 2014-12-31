@@ -22,7 +22,7 @@ class Passenger < ActiveRecord::Base
   before_save { email.downcase! }
 
   validates :name, presence: true
-  validates :email, presence: true, uniqueness: true,
+  validates :email, presence: true,
                     format: { with: /\A[^@\s]+@([^@.\s]+\.)+[^@.\s]+\z/ }
 
 
